@@ -132,60 +132,6 @@ def login():
             else:
                 st.error("Invalid PIN")
     st.markdown("<br><br>", unsafe_allow_html=True)
-    # --- AHP Team Link ---
-    # --- AHP Team Link & Password Setting (Control Only) ---
-    st.markdown("<div style='text-align:center;margin-top:48px;'>", unsafe_allow_html=True)
-    col_team, col_pwd = st.columns([2,1])
-    with col_team:
-        if st.button("AHP Team Credits", key="ahp_team_btn"):
-            st.session_state["show_team_modal"] = True
-        st.markdown("</div>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-    # Password Modal
-    if st.session_state.get("show_pwd_modal"):
-        st.markdown("<div style='background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px #0003;position:relative;z-index:100;'>", unsafe_allow_html=True)
-        st.subheader("Set Force Passwords (Control Only)")
-        pwd_control = st.text_input("Control PIN", value=st.session_state.get("pin_control", "9999"), type="password", key="pin_control")
-        pwd_blue = st.text_input("Blue Force PIN", value=st.session_state.get("pin_blue", "2222"), type="password", key="pin_blue")
-        pwd_red = st.text_input("Red Force PIN", value=st.session_state.get("pin_red", "1111"), type="password", key="pin_red")
-        if st.button("Save PINs", key="save_pins"):
-            st.session_state["pin_control"] = pwd_control
-            st.session_state["pin_blue"] = pwd_blue
-            st.session_state["pin_red"] = pwd_red
-            st.success("PINs updated.")
-        if st.button("Close", key="close_pwd_modal"):
-            st.session_state["show_pwd_modal"] = False
-        st.markdown("</div>", unsafe_allow_html=True)
-    # Team Modal
-    if st.session_state.get("show_team_modal"):
-        st.markdown("<div style='background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px #0003;position:relative;z-index:100;'>", unsafe_allow_html=True)
-        st.subheader("AHP Team Credits")
-        # Default team data
-        if "ahp_team" not in st.session_state:
-            st.session_state["ahp_team"] = [
-                {"name": "Cdr A Kumar", "role": "Lead Architect"},
-                {"name": "Lt B Singh", "role": "Backend Developer"},
-                {"name": "Lt C Sharma", "role": "Frontend Developer"},
-                {"name": "Lt D Patel", "role": "Testing & QA"}
-            ]
-        team = st.session_state["ahp_team"]
-        for i, member in enumerate(team):
-            if role == "control":
-                name = st.text_input(f"Name {i+1}", member["name"], key=f"team_name_{i}")
-                role_ = st.text_input(f"Role {i+1}", member["role"], key=f"team_role_{i}")
-                team[i]["name"] = name
-                team[i]["role"] = role_
-            else:
-                st.write(f"**{member['name']}** — {member['role']}")
-        if role == "control":
-            if st.button("Add Member", key="add_team_member"):
-                team.append({"name": "", "role": ""})
-            if st.button("Save Credits", key="save_team_credits"):
-                st.session_state["ahp_team"] = team
-                st.success("Team credits updated.")
-        if st.button("Close", key="close_team_modal"):
-            st.session_state["show_team_modal"] = False
-        st.markdown("</div>", unsafe_allow_html=True)
 
 # --- Sidebar Navigation ---
 def sidebar():
@@ -565,6 +511,28 @@ def control_panel_tab():
                 st.session_state["pin_blue"] = pwd_blue
                 st.session_state["pin_red"] = pwd_red
                 st.success("All PINs updated.")
+    
+    # --- AHP Team Credits Edit ---
+    st.markdown("---")
+    st.subheader("AHP Team Credits")
+    if "ahp_team" not in st.session_state:
+        st.session_state["ahp_team"] = [
+            {"name": "Cdr A Kumar", "role": "Lead Architect"},
+            {"name": "Lt B Singh", "role": "Backend Developer"},
+            {"name": "Lt C Sharma", "role": "Frontend Developer"},
+            {"name": "Lt D Patel", "role": "Testing & QA"}
+        ]
+    team = st.session_state["ahp_team"]
+    for i, member in enumerate(team):
+        name = st.text_input(f"Name {i+1}", member["name"], key=f"team_name_cp_{i}")
+        role_ = st.text_input(f"Role {i+1}", member["role"], key=f"team_role_cp_{i}")
+        team[i]["name"] = name
+        team[i]["role"] = role_
+    if st.button("Add Member", key="add_team_member_cp"):
+        team.append({"name": "", "role": ""})
+    if st.button("Save Credits", key="save_team_credits_cp"):
+        st.session_state["ahp_team"] = team
+        st.success("Team credits updated.")
 
 # --- Force Manager Tab ---
 def force_manager_tab():
