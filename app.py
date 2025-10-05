@@ -547,24 +547,47 @@ def control_panel_tab():
                 data["dps"] = dps
                 save_project(project, side, data)
                 st.success(f"DP {dp.get('DP No')} weight updated.")
-        st.markdown("---")
-        st.subheader("Set Force Passwords (Control Only)")
-        pwd_control = st.text_input("Control PIN", value=st.session_state.get("pin_control", "9999"), type="password", key=f"pin_control_panel_cp_{side}")
-        pwd_blue = st.text_input("Blue Force PIN", value=st.session_state.get("pin_blue", "2222"), type="password", key=f"pin_blue_panel_cp_{side}")
-        pwd_red = st.text_input("Red Force PIN", value=st.session_state.get("pin_red", "1111"), type="password", key=f"pin_red_panel_cp_{side}")
-        # Add password fields for all other forces
-        for force in SIDES:
-            if force not in ["control", "blue", "red"]:
-                st.session_state.setdefault(f"pin_{force}", "0000")
-                pin_val = st.text_input(f"{force.capitalize()} PIN", value=st.session_state.get(f"pin_{force}", "0000"), type="password", key=f"pin_{force}_panel_cp_{side}")
-                if st.button(f"Save {force.capitalize()} PIN", key=f"save_pin_{force}_panel_cp_{side}"):
-                    st.session_state[f"pin_{force}"] = pin_val
-                    st.success(f"{force.capitalize()} PIN updated.")
-            if st.button("Save All PINs", key=f"save_all_pins_panel_cp_{side}_{force}"):
-                st.session_state["pin_control"] = pwd_control
-                st.session_state["pin_blue"] = pwd_blue
-                st.session_state["pin_red"] = pwd_red
-                st.success("All PINs updated.")
+    
+    st.markdown("---")
+    st.subheader("Set Force Passwords (Control Only)")
+    pwd_control = st.text_input("Control PIN", value=st.session_state.get("pin_control", "9999"), type="password", key="pin_control_panel_cp")
+    pwd_blue = st.text_input("Blue Force PIN", value=st.session_state.get("pin_blue", "2222"), type="password", key="pin_blue_panel_cp")
+    pwd_red = st.text_input("Red Force PIN", value=st.session_state.get("pin_red", "1111"), type="password", key="pin_red_panel_cp")
+    # Add password fields for all other forces
+    for force in SIDES:
+        if force not in ["blue", "red"]:
+            st.session_state.setdefault(f"pin_{force}", "0000")
+            pin_val = st.text_input(f"{force.capitalize()} PIN", value=st.session_state.get(f"pin_{force}", "0000"), type="password", key=f"pin_{force}_panel_cp")
+            if st.button(f"Save {force.capitalize()} PIN", key=f"save_pin_{force}_panel_cp"):
+                st.session_state[f"pin_{force}"] = pin_val
+                st.success(f"{force.capitalize()} PIN updated.")
+    if st.button("Save All PINs", key="save_all_pins_panel_cp"):
+        st.session_state["pin_control"] = pwd_control
+        st.session_state["pin_blue"] = pwd_blue
+        st.session_state["pin_red"] = pwd_red
+        st.success("All PINs updated.")
+
+    # --- AHP Team Credits Edit ---
+    st.markdown("---")
+    st.subheader("AHP Team Credits")
+    if "ahp_team" not in st.session_state:
+        st.session_state["ahp_team"] = [
+            {"name": "Cdr A Kumar", "role": "Lead Architect"},
+            {"name": "Lt B Singh", "role": "Backend Developer"},
+            {"name": "Lt C Sharma", "role": "Frontend Developer"},
+            {"name": "Lt D Patel", "role": "Testing & QA"}
+        ]
+    team = st.session_state["ahp_team"]
+    for i, member in enumerate(team):
+        name = st.text_input(f"Name {i+1}", member["name"], key=f"team_name_cp_{i}")
+        role_ = st.text_input(f"Role {i+1}", member["role"], key=f"team_role_cp_{i}")
+        team[i]["name"] = name
+        team[i]["role"] = role_
+    if st.button("Add Member", key="add_team_member_cp"):
+        team.append({"name": "", "role": ""})
+    if st.button("Save Credits", key="save_team_credits_cp"):
+        st.session_state["ahp_team"] = team
+        st.success("Team credits updated.")
 
 # --- Force Manager Tab ---
 def force_manager_tab():
