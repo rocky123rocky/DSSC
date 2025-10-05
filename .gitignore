@@ -1,0 +1,29 @@
+# Validation and testing files
+validate_changes.py
+CHANGES_SUMMARY.md
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+
+# Data files (if any)
+*.json
+!forces.json
