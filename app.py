@@ -156,7 +156,7 @@ def login():
         if st.button("Close", key="close_pwd_modal"):
             st.session_state["show_pwd_modal"] = False
         st.markdown("</div>", unsafe_allow_html=True)
-    # Team Modal
+    # Team Modal (Read-only view for all users)
     if st.session_state.get("show_team_modal"):
         st.markdown("<div style='background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px #0003;position:relative;z-index:100;'>", unsafe_allow_html=True)
         st.subheader("AHP Team Credits")
@@ -169,20 +169,9 @@ def login():
                 {"name": "Lt D Patel", "role": "Testing & QA"}
             ]
         team = st.session_state["ahp_team"]
-        for i, member in enumerate(team):
-            if role == "control":
-                name = st.text_input(f"Name {i+1}", member["name"], key=f"team_name_{i}")
-                role_ = st.text_input(f"Role {i+1}", member["role"], key=f"team_role_{i}")
-                team[i]["name"] = name
-                team[i]["role"] = role_
-            else:
-                st.write(f"**{member['name']}** — {member['role']}")
-        if role == "control":
-            if st.button("Add Member", key="add_team_member"):
-                team.append({"name": "", "role": ""})
-            if st.button("Save Credits", key="save_team_credits"):
-                st.session_state["ahp_team"] = team
-                st.success("Team credits updated.")
+        for member in team:
+            st.write(f"**{member['name']}** — {member['role']}")
+        st.info("To edit team credits, login as Control and go to Control Panel.")
         if st.button("Close", key="close_team_modal"):
             st.session_state["show_team_modal"] = False
         st.markdown("</div>", unsafe_allow_html=True)
