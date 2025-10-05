@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "name": "",
+    "description": "",
+    "status": "active",
+    "created": "",
+    "modified": "2025-10-03T16:08:17.813858"
+  },
+  "phases": [
+    {
+      "Phase": "Phase-1"
+    },
+    {
+      "Phase": "Phase-2"
+    }
+  ],
+  "objectives": [
+    {
+      "name": "Deter Conventional War",
+      "phase": "Phase-1"
+    },
+    {
+      "name": "SF, 4GW, S/M",
+      "phase": "Phase-1"
+    },
+    {
+      "name": "ISPR,",
+      "phase": "Phase-2"
+    }
+  ],
+  "dps": [
+    {
+      "dp_no": 1,
+      "name": "Rebase Naval/ MAO assets",
+      "objective": "Deter Conventional War",
+      "phase": "Phase-1",
+      "weight": 5,
+      "force_group": "Air Assets"
+    },
+    {
+      "dp_no": 2,
+      "name": "Augment Coastal Defences",
+      "objective": "Deter Conventional War",
+      "phase": "Phase-1",
+      "weight": 4,
+      "force_group": NaN
+    },
+    {
+      "dp_no": 3,
+      "name": "Position Submarines in patrol areas",
+      "objective": "Deter Conventional War",
+      "phase": "Phase-1",
+      "weight": 5,
+      "force_group": "S/M"
+    },
+    {
+      "dp_no": 4,
+      "name": "Protect red SLOCS",
+      "objective": "Deter Conventional War",
+      "phase": "Phase-2",
+      "weight": 5,
+      "force_group": NaN
+    },
+    {
+      "dp_no": 5,
+      "name": "Undertake kinetic GZO/ Clandestine ops",
+      "objective": "SF, 4GW, S/M",
+      "phase": "Phase-1",
+      "weight": 4,
+      "force_group": "SF, 4GW, S/M"
+    },
+    {
+      "dp_no": 6,
+      "name": "Attack BLUE Vas/VPs and offshore instll",
+      "objective": "SF, 4GW, S/M",
+      "phase": "Phase-1",
+      "weight": 4,
+      "force_group": NaN
+    },
+    {
+      "dp_no": 7,
+      "name": "Interdict BLUE trade",
+      "objective": "SF, 4GW, S/M",
+      "phase": "Phase-1",
+      "weight": 3,
+      "force_group": NaN
+    },
+    {
+      "dp_no": 8,
+      "name": "Destroy/Degrade BLUE naval units",
+      "objective": "SF, 4GW, S/M",
+      "phase": "Phase-2",
+      "weight": 5,
+      "force_group": "Surface units, MR aircraft, Shore Based Strike"
+    },
+    {
+      "dp_no": 9,
+      "name": "Undertake IW to deter conflict",
+      "objective": "ISPR,",
+      "phase": "Phase-1",
+      "weight": 5,
+      "force_group": NaN
+    },
+    {
+      "dp_no": 10,
+      "name": "Undertake IW to support conflict",
+      "objective": "ISPR,",
+      "phase": "Phase-1",
+      "weight": 3,
+      "force_group": NaN
+    },
+    {
+      "dp_no": 11,
+      "name": "Destroy/ Degrade BLUE CBG",
+      "objective": "ISPR,",
+      "phase": "Phase-1",
+      "weight": 3,
+      "force_group": "Surface units, MR aircraft, Shore Based Strike"
+    },
+    {
+      "dp_no": 12,
+      "name": "Undertake Amphibious raid",
+      "objective": "ISPR,",
+      "phase": "Phase-2",
+      "weight": 5,
+      "force_group": NaN
+    }
+  ],
+  "tasks": [
+    {
+      "dp_no": 1,
+      "task_no": 1,
+      "description": "Rebase Naval/ MAO assets",
+      "force_tg": "Air Assets",
+      "type": "T",
+      "criteria": "All Naval assets/ MAO rebased ",
+      "stated": NaN,
+      "achieved": 100.0,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 2,
+      "task_no": 1,
+      "description": "Augment Coastal Defences",
+      "force_tg": NaN,
+      "type": "T",
+      "criteria": "Rebasing of MMCBs/ C2 of RMSA resources/Mining",
+      "stated": NaN,
+      "achieved": 100.0,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 3,
+      "task_no": 1,
+      "description": "Position Submarines in patrol areas",
+      "force_tg": "S/M",
+      "type": "T",
+      "criteria": "Reaching designated area",
+      "stated": NaN,
+      "achieved": 100.0,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 4,
+      "task_no": 1,
+      "description": "Protect red SLOCS",
+      "force_tg": NaN,
+      "type": "T",
+      "criteria": "Own SLOCs to protected",
+      "stated": NaN,
+      "achieved": 100.0,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 5,
+      "task_no": 1,
+      "description": "Undertake kinetic GZO/ Clandestine ops",
+      "force_tg": "SF, 4GW, S/M",
+      "type": "T",
+      "criteria": "Commandeering/ Blockade/ Bomb blasts/ Midget Ops",
+      "stated": NaN,
+      "achieved": 66.66666666666667,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 6,
+      "task_no": 1,
+      "description": "Attack BLUE Vas/VPs and offshore instll",
+      "force_tg": NaN,
+      "type": "T",
+      "criteria": "Assets to be targeted and degraded",
+      "stated": 10.0,
+      "achieved": 100.0,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 7,
+      "task_no": 1,
+      "description": "Interdict BLUE trade",
+      "force_tg": NaN,
+      "type": "T",
+      "criteria": "Blue Trade assets to be interdicted",
+      "stated": NaN,
+      "achieved": 60.0,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 8,
+      "task_no": 1,
+      "description": "Destroy/Degrade BLUE naval units",
+      "force_tg": "Surface units, MR aircraft, Shore Based Strike",
+      "type": "T",
+      "criteria": "Blue combatants to be targeted & degraded",
+      "stated": NaN,
+      "achieved": 45.99999999999999,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 9,
+      "task_no": 1,
+      "description": "Undertake IW to deter conflict",
+      "force_tg": NaN,
+      "type": "I",
+      "criteria": "Shape International public opinion in own favour",
+      "stated": NaN,
+      "achieved": 1.0,
+      "intangible_level": "Prevent BL from undertaking Conventional war"
+    },
+    {
+      "dp_no": 10,
+      "task_no": 1,
+      "description": "Undertake IW to support conflict",
+      "force_tg": NaN,
+      "type": "I",
+      "criteria": "Leverage International Cooperation and demean BL",
+      "stated": NaN,
+      "achieved": 33.33333333333334,
+      "intangible_level": "Mounting international Pressure from  Reijing/ Rashington/ Roscow(3)"
+    },
+    {
+      "dp_no": 11,
+      "task_no": 1,
+      "description": "Destroy/ Degrade BLUE CBG",
+      "force_tg": "Surface units, MR aircraft, Shore Based Strike",
+      "type": "T",
+      "criteria": "Degradation of Carrier/ FSS/Screen ship",
+      "stated": NaN,
+      "achieved": 50.0,
+      "intangible_level": NaN
+    },
+    {
+      "dp_no": 12,
+      "task_no": 1,
+      "description": "Undertake Amphibious raid",
+      "force_tg": NaN,
+      "type": "T",
+      "criteria": "Undertake Amphibious raid at Suratgarh",
+      "stated": NaN,
+      "achieved": 1.0,
+      "intangible_level": NaN
+    }
+  ],
+  "ko": {},
+  "progress": {},
+  "control": {}
+}

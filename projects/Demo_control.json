@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "Demo",
+    "description": "",
+    "status": "active",
+    "created": "2025-09-30T23:20:50.874341",
+    "modified": "2025-09-30T23:25:34.232266"
+  },
+  "phases": [],
+  "objectives": [],
+  "dps": [],
+  "tasks": [],
+  "ko": {
+    "null": {},
+    "null": {}
+  },
+  "progress": {},
+  "control": {}
+}
